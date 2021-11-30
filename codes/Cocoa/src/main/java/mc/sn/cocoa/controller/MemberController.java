@@ -15,7 +15,7 @@ import mc.sn.cocoa.vo.MemberVO;
 public interface MemberController {
 	public ModelAndView view_join(HttpServletRequest request, HttpServletResponse response);
 
-	public ModelAndView join(@ModelAttribute("member") MemberVO memberVO, HttpServletRequest request,
+	public int join(@ModelAttribute("member") MemberVO memberVO, HttpServletRequest request,
 			HttpServletResponse response) throws UnsupportedEncodingException;
 
 	public ModelAndView view_login(@RequestParam(value = "result", required = false) String result,

@@ -7,78 +7,14 @@
 <head>
 <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
-<link
-	href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'
-	rel='stylesheet'>
-<link href='https://use.fontawesome.com/releases/v5.7.2/css/all.css'
-	rel='stylesheet'>
-<script type='text/javascript'
-	src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-<script type='text/javascript'
-	src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js'></script>
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
-	rel="stylesheet" />
+<link href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' rel='stylesheet'>
+<link href='https://use.fontawesome.com/releases/v5.7.2/css/all.css' rel='stylesheet'>
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js'></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
 <link href="resources/css/join-styles.css" rel="stylesheet" />
+<script type="text/javascript" src="resources/js/ajax.js"></script>
 <title>Sign In</title>
-<script type="text/javascript">
-	$(document).ready(function() {
-		alert('회원가입 내용을 작성하세요')
-		$('#validate').click(function() {
-			alert('회원가입을 했습니다');
-		});
-	
-		$('.form-control').focusout(function () {
-	        var pwd1 = $("#pwd1").val();
-	        var pwd2 = $("#pwd2").val();
-	  
-	        if ( pwd1 != '' && pwd2 == '' ) {
-	            null;
-	        } else if (pwd1 != "" || pwd2 != "") {
-	            if (pwd1 == pwd2) {
-	                $("#alert-success").css('display', 'inline-block');
-	                $("#alert-danger").css('display', 'none');
-	            } else {
-	              
-	                $("#alert-success").css('display', 'none');
-	                $("#alert-danger").css('display', 'inline-block');
-	            }
-	        }
-	    });
-		
-		$('#idCheck').click(function(){
-			var _id = $("#id").val();
-			if (_id == null) {
-				alert("ID를 입력하세요");
-				return;
-			}
-			$.ajax({
-				type : "post",
-				async : true,
-				url : "/cocoa/idChk",
-				dataType : "json",
-				data : {"id" : _id},
-				
-				success : function(data, textStatus) {
-					
-
-					if (data == 1) {
-						alert("사용할 수 없는 ID입니다.");
-					} else {
-						alert("사용할 수 있는 ID입니다.");
-					}
-				},
-				error : function(data) {
-					alert("에러가! 발생했습니다.");
-					
-				},
-				complete : function(data) {
-					//alert("작업을 완료 했습니다");
-				}
-			}); //end ajax	 
-		});
-	});
-</script>
 </head>
 <body>
 	<div class="container">
@@ -88,7 +24,7 @@
 				<a href="/cocoa">CoCoa</a>
 			</h2>
 			<h3 class="mb-2">회원가입</h3>
-			<form action="/cocoa/join" method="post">
+			<form action="" method="post">
 				<table width=460px>
 					<tr>
 						<td><div class="fone">
@@ -139,7 +75,7 @@
 				</table>
 			</form>
 			<p class="exist mt-2">
-				계정이 이미 있으신가요? <a class="exist" href="login">로그인하기</a>
+				계정이 이미 있으신가요? <a class="exist" href="view_login">로그인하기</a>
 			</p>
 		</div>
 	</div>

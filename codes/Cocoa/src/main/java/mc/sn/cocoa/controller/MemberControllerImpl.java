@@ -48,18 +48,15 @@ public class MemberControllerImpl implements MemberController {
 
 	// 회원가입
 	@Override
+	@ResponseBody
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
-	public ModelAndView join(@ModelAttribute("member") MemberVO memberVO, HttpServletRequest request,
+	public int join(@ModelAttribute("member") MemberVO memberVO, HttpServletRequest request,
 			HttpServletResponse response) throws UnsupportedEncodingException {
 		request.setCharacterEncoding("utf-8");
 		int result = 0;
 		result = memberService.joinMember(memberVO);
-		if (result > 0) {
-			System.out.println("회원가입 성공");
-			// aler 같은게 필요
-		}
-		ModelAndView mav = new ModelAndView("redirect:/");
-		return mav;
+		System.out.println(result);
+		return result;
 	}
 
 	// 로그인

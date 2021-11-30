@@ -141,7 +141,7 @@ h2.heading {
 
 .btn-success {
     padding: 7px 40px;
-    background: rgb(128, 64, 64);
+    background: #11C892;
     border: none;
     border-radius: 30px;
     font-size: 15px
@@ -166,7 +166,7 @@ p.exist {
 
 p.exist a {
     cursor: pointer;
-    font-size:15px;
+    font-size:13px;
     color: #ff0000;
 }
 
