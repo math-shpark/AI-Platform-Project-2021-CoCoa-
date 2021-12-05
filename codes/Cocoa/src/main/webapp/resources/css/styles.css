@@ -3031,7 +3031,7 @@ textarea.form-control-lg {
 .btn-primary {
   color: #000;
   background-color: #fff;
-  border-color: #fff;
+  border-color: #000;
 }
 .btn-primary:hover {
   color: #fff;
@@ -3059,14 +3059,14 @@ textarea.form-control-lg {
 }
 
 .btn-secondary {
-  color: #fff;
-  background-color: #6c757d;
-  border-color: #6c757d;
+  color: #000;
+  background-color: #A1887F;
+  border-color: #000;
 }
 .btn-secondary:hover {
   color: #fff;
-  background-color: #5c636a;
-  border-color: #565e64;
+  background-color: #000;
+  border-color: #000;
 }
 .btn-check:focus + .btn-secondary, .btn-secondary:focus {
   color: #fff;
@@ -3444,13 +3444,26 @@ textarea.form-control-lg {
 }
 
 .btn-outline-dark {
-  color: #212529;
-  border-color: #212529;
+  color: #000;
+  background-color: #fff;
+  border-color: #000;
 }
 .btn-outline-dark:hover {
   color: #fff;
-  background-color: #212529;
-  border-color: #212529;
+  background-color: #000;
+  border-color: #000;
+}
+.btn-third-dark {
+  color: #000;
+  background-color: #FFCCCC;
+  border-color: #000;
+  font-weight: 700;
+}
+.btn-third-dark:hover {
+  color: #fff;
+  background-color: #000;
+  border-color: #000;
+  font-weight: 700;
 }
 .btn-check:focus + .btn-outline-dark, .btn-outline-dark:focus {
   box-shadow: 0 0 0 0.25rem rgba(33, 37, 41, 0.5);
@@ -9723,7 +9736,7 @@ textarea.form-control-lg {
   }
 
   .ms-lg-4 {
-    margin-left: 1.5rem !important;
+    margin-left: 30rem !important;
   }
 
   .ms-lg-5 {

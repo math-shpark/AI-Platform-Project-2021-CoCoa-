@@ -4,19 +4,23 @@ import org.springframework.stereotype.Component;
 
 @Component("coachVO")
 public class CoachVO {
-	private String coachId;
+
+	private int coachNO;
+	private String coach;
 	private String lang;
 	private String cImg;
 	private String cTitle;
 	private int basicPrice;
 	private String cContents;
-	
+
 	public CoachVO() {
-		
+
 	}
 
-	public CoachVO(String coachId, String lang, String cImg, String cTitle, int basicPrice, String cContents) {
-		this.coachId = coachId;
+	public CoachVO(int coachNO, String coach, String lang, String cImg, String cTitle, int basicPrice,
+			String cContents) {
+		this.coachNO = coachNO;
+		this.coach = coach;
 		this.lang = lang;
 		this.cImg = cImg;
 		this.cTitle = cTitle;
@@ -24,12 +28,20 @@ public class CoachVO {
 		this.cContents = cContents;
 	}
 
-	public String getCoachId() {
-		return coachId;
+	public int getCoachNO() {
+		return coachNO;
 	}
 
-	public void setCoachId(String coachId) {
-		this.coachId = coachId;
+	public void setCoachNO(int coachNO) {
+		this.coachNO = coachNO;
+	}
+
+	public String getCoach() {
+		return coach;
+	}
+
+	public void setCoach(String coach) {
+		this.coach = coach;
 	}
 
 	public String getLang() {
@@ -71,6 +83,4 @@ public class CoachVO {
 	public void setcContents(String cContents) {
 		this.cContents = cContents;
 	}
-	
-	
 }
