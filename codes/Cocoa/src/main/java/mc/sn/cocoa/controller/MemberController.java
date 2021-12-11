@@ -13,6 +13,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import mc.sn.cocoa.vo.MemberVO;
 
 public interface MemberController {
+
 	public ModelAndView view_join(HttpServletRequest request, HttpServletResponse response);
 
 	public int join(@ModelAttribute("member") MemberVO memberVO, HttpServletRequest request,
@@ -25,5 +26,9 @@ public interface MemberController {
 			HttpServletRequest request, HttpServletResponse response);
 
 	public ModelAndView logout(HttpServletRequest request, HttpServletResponse response);
+
+	public ModelAndView view_myPageProfile(HttpServletRequest request, HttpServletResponse response) throws Exception;
+
+	public ModelAndView view_memberInfo(HttpServletRequest request, HttpServletResponse response);
 
 }

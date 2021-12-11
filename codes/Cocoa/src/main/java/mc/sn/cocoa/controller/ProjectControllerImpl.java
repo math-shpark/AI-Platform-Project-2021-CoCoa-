@@ -45,11 +45,12 @@ public class ProjectControllerImpl implements ProjectController {
 	@RequestMapping(value = "/view_projectWrite", method = RequestMethod.GET)
 	public ModelAndView view_projectWrite(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
-		String url = "/projectWriteForm";
+		String url = "/project/projectWriteForm";
 		mav.setViewName(url);
 		return mav;
 	}
 
+	// 프로젝트 상세 이동
 	@Override
 	@RequestMapping(value = "/view_projectInfo", method = RequestMethod.GET)
 	public ModelAndView projectInfo(@RequestParam("id") String id, @RequestParam("projectNO") int projectNO,
@@ -61,7 +62,7 @@ public class ProjectControllerImpl implements ProjectController {
 		projectVO.setProjectNO(projectNO);
 		ProjectVO vo = projectService.searchProject(projectVO);
 		mav.addObject("projectInfo", vo);
-		String url = "/projectInfo";
+		String url = "/project/projectInfo";
 		mav.setViewName(url);
 		return mav;
 	}
@@ -138,6 +139,7 @@ public class ProjectControllerImpl implements ProjectController {
 		return resEnt;
 	}
 
+	// 프로젝트 글 삭제
 	@Override
 	@RequestMapping(value = "/removeProject", method = RequestMethod.GET)
 	@ResponseBody
@@ -218,6 +220,7 @@ public class ProjectControllerImpl implements ProjectController {
 		out.close();
 	}
 
+	// 프로젝트 이미지 다운로드
 	@RequestMapping("/download")
 	protected void download(@RequestParam("pImg") String pImg, @RequestParam("leader") String leader,
 			@RequestParam("projectNO") String projectNO, HttpServletResponse response) throws Exception {
@@ -281,7 +284,6 @@ public class ProjectControllerImpl implements ProjectController {
 			message += " </script>";
 			resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
 		} catch (Exception e) {
-			// TODO: handle exception
 			// 예외발생시 취소 및 삭제
 			File srcFile = new File(project_IMAGE_REPO + "\\" + "temp" + "\\" + pImg);
 			srcFile.delete();
