@@ -5,8 +5,10 @@ import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
+import mc.sn.cocoa.vo.Criteria;
 import mc.sn.cocoa.vo.RequestVO;
 
 @Repository("requestDAO")
@@ -30,20 +32,20 @@ public class RequestDAOImpl implements RequestDAO {
 	}
 
 	// 받은 요청 리스트 가져와서 리턴
-	@Override
-	public List selectAllReqGot(String res) {
-		List<RequestVO> reqGotList = null;
-		reqGotList = sqlSession.selectList("mapper.request.selectAllReqGot", res);
-		return reqGotList;
-	}
+		@Override
+		public List selectAllReqGot(Criteria cri) {
+			List<RequestVO> reqGotList = null;
+			reqGotList = sqlSession.selectList("mapper.request.selectAllReqGot", cri);
+			return reqGotList;
+		}
 
-	// 보낸 요청 리스트 가져와서 리턴
-	@Override
-	public List selectAllReqSent(String req) {
-		List<RequestVO> reqSentList = null;
-		reqSentList = sqlSession.selectList("mapper.request.selectAllReqSent", req);
-		return reqSentList;
-	}
+		// 보낸 요청 리스트 가져와서 리턴
+		@Override
+		public List selectAllReqSent(Criteria cri) {
+			List<RequestVO> reqSentList = null;
+			reqSentList = sqlSession.selectList("mapper.request.selectAllReqSent", cri);
+			return reqSentList;
+		}
 
 	// 보낸 & 받은 요청서 조회
 	@Override
@@ -63,5 +65,33 @@ public class RequestDAOImpl implements RequestDAO {
 	@Override
 	public void deleteRequest(int reqNO) {
 		sqlSession.delete("mapper.request.deleteRequest", reqNO);
+	}
+
+	// 거절 사유 전송(업데이트)
+	@Override
+	public int updateReason(RequestVO requestVO) {
+		int result = 0;
+		result = sqlSession.update("mapper.request.updateReason", requestVO);
+		return result;
+	}
+
+	// 수락 정보 전송(업데이트)
+	@Override
+	public int updateYes(RequestVO requestVO) {
+		int result = 0;
+		result = sqlSession.update("mapper.request.updateYes", requestVO);
+		return result;
+	}
+	
+	// 보낸 요청글 개수
+	@Override
+	public int countSendRequest(String req) throws DataAccessException {
+		return (Integer) sqlSession.selectOne("mapper.request.countSendRequest", req);
+	}
+	
+	// 빋은 요청글 개수
+	@Override
+	public int countReceiveRequest(String res) throws DataAccessException {
+		return (Integer) sqlSession.selectOne("mapper.request.countReceiveRequest", res);
 	}
 }

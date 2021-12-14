@@ -4,8 +4,12 @@ public class Criteria {
 
 	private int page; // 현재 페이지 번호
 	private int perPageNum; // 한 페이지에 게시할 글의 수
-	private String lang = "C";
-	private String level = "하수";
+	private String cField = "cField";
+	private String tool = "tool";
+	private String pField = "pField";
+	private String level = "level";
+	private String reqId;
+	private String resId;
 
 	// 특정 페이지의 게시글 시작 번호, 게시글 시작 행 번호
 	public int getPageStart() {
@@ -45,12 +49,28 @@ public class Criteria {
 		}
 	}
 
-	public String getLang() {
-		return lang;
+	public String getcField() {
+		return cField;
 	}
 
-	public void setLang(String lang) {
-		this.lang = lang;
+	public void setcField(String cField) {
+		this.cField = cField;
+	}
+
+	public String getTool() {
+		return tool;
+	}
+
+	public void setTool(String tool) {
+		this.tool = tool;
+	}
+
+	public String getpField() {
+		return pField;
+	}
+
+	public void setpField(String pField) {
+		this.pField = pField;
 	}
 
 	public String getLevel() {
@@ -60,7 +80,21 @@ public class Criteria {
 	public void setLevel(String level) {
 		this.level = level;
 	}
-	
-	
+
+	public String getReqId() {
+		return reqId;
+	}
+
+	public void setReqId(String reqId) {
+		this.reqId = reqId;
+	}
+
+	public String getResId() {
+		return resId;
+	}
+
+	public void setResId(String resId) {
+		this.resId = resId;
+	}
 	
 }
