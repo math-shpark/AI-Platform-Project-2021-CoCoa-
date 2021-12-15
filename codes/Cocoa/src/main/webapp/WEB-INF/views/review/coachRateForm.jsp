@@ -35,15 +35,7 @@
 
 		<!-- 우측 내용 -->
 		<div class="col-sm-9">
-			<c:if test="${requestInfo.status eq '수락'}">
-				<div id="main"><jsp:include page="gotYes.jsp"></jsp:include></div>
-			</c:if>
-			<c:if test="${requestInfo.status eq '대기'}">
-				<div id="main"><jsp:include page="gotWait.jsp"></jsp:include></div>
-			</c:if>
-			<c:if test="${requestInfo.status eq '거절'}">
-				<div id="main"><jsp:include page="gotNo.jsp"></jsp:include></div>
-			</c:if>
+			<div id="main"><jsp:include page="rate.jsp"></jsp:include></div>
 		</div>
 
 	</div>
